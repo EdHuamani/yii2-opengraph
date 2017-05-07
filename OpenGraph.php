@@ -1,6 +1,6 @@
 <?php
 
-namespace ragdexD\opengraph;
+namespace eharango\opengraph;
 
 use Yii;
 use yii\web\View;
