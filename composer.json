@@ -1,0 +1,25 @@
+{
+    "name": "ragdexD/yii2-opengraph",
+    "type": "yii2-extension",
+    "description": "Metadata Open Graph generator for Yii2",
+    "keywords": ["opengraph", "yii2", "facebook opengraph", "yii2 extension"],
+    "homepage": "https://github.com/ragdexD/yii2-opengraph",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edgar Huamani",
+            "email": "ehuamani@unasolutions.com",
+            "homepage": "unasolutions.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ragdexD\\opengraph\\": ""
+        }
+    }
+}
