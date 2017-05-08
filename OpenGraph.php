@@ -20,8 +20,6 @@ class OpenGraph {
     public $type;
     public $image;
     public $app_id;
-    
-    
 
     function __construct() {
         //Default 
@@ -31,7 +29,9 @@ class OpenGraph {
         $this->description = null;
         $this->type = 'website'; //article
         $this->locale = str_replace('-', '_', Yii::$app->language);
-        $this->image = null;
+
+        //Structured image
+        $this->image = new Image();
 
         // Twitter Card
         $this->twitter = new TwitterCard;
@@ -52,15 +52,12 @@ class OpenGraph {
                 Yii::$app->controller->view->registerMetaTag(['property' => 'og:description', 'content' => $this->description], 'og:description');
             }
 
-            // Only add an image meta if specified
-            if ($this->image !== null) {
-                Yii::$app->controller->view->registerMetaTag(['property' => 'og:image', 'content' => $this->image], 'og:image');
-            }
             // Only add an app_id meta if specified
             if ($this->app_id !== null) {
                 Yii::$app->controller->view->registerMetaTag(['property' => 'fb:app_id', 'content' => $this->app_id], 'fb:app_id');
             }
 
+            $this->image->registerTags();
             $this->twitter->registerTags();
         });
     }
@@ -68,12 +65,27 @@ class OpenGraph {
     public function set($metas = []) {
         // Massive assignment by array
         foreach ($metas as $property => $content) {
-            if ($property == 'twitter') {
-                $this->twitter->set($content);
-            } else if (property_exists($this, $property)) {
-                $this->$property = $content;
+            switch ($property) {
+                case 'image':
+                    if (isset($content[0]) && is_array($content[0]) && count($content[0]) >= 1) {
+                        foreach ($content as $elem) {
+                            $this->image->setArray($elem);
+                        }
+                    } else {
+                        $this->image->set($content);
+                    }
+                    break;
+                case 'twitter':
+                    $this->twitter->set($content);
+                    break;
+                default :
+                    if (property_exists($this, $property)) {
+                        $this->$property = $content;
+                    }
+                    break;
             }
         }
     }
 
 }
+
