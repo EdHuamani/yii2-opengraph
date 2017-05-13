@@ -1,29 +1,34 @@
 {
-    "name": "eharango/yii2-opengraph",
-    "type": "yii2-extension",
-    "description": "Metadata Open Graph generator for Yii2",
-    "keywords": ["opengraph", "yii2", "facebook opengraph", "yii2 extension"],
-    "homepage": "https://github.com/eharango/yii2-opengraph",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Edgar Huamani",
-            "email": "ehuamani@unasolutions.com",
-            "homepage": "http://unasolutions.com",
-            "role": "Developer"
-        }
-    ],
-   
-   "require": {
-        "yiisoft/yii2": "~2.0.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "eharango\\opengraph\\": ""
-        },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
+  "name": "eharango/yii2-opengraph",
+  "type": "yii2-extension",
+  "description": "Metadata Open Graph generator for Yii2",
+  "keywords": [
+    "opengraph",
+    "yii2",
+    "facebook opengraph",
+    "yii2 extension"
+  ],
+  "homepage": "https://github.com/eharango/yii2-opengraph",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edgar Huamani",
+      "email": "ehuamani@unasolutions.com",
+      "homepage": "http://unasolutions.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "eharango\\opengraph\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
 }
